@@ -96,8 +96,57 @@ class Main{
         }
     }
 
+    static void pyramid(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n-i-1; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < 2*i+1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+
+            
+        }
+    }
+
+    static void pyramidReverse(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < 2*n - (2*i +1); j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    static void halfDiamond(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= 2*n-1; i++) {
+            int stars = i;
+            if(i>n) stars = 2*n-i;
+            for (int j = 1; j <= stars; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
     static void main(String[] args) {
         System.out.println("abc");
-        numberPattern1Reverse();
+        halfDiamond();
     }
 }
