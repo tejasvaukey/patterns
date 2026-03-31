@@ -281,9 +281,95 @@ class Main{
         }
     }
 
+    static void rightTriangleAlphabetReverse2(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+
+        for (int i = 1; i <= n; i++) {
+            char ch;
+            for (ch = (char) (('A' + n) - i); ch < ('A'+n); ch++) {
+                System.out.print(ch+" ");
+
+            }
+            System.out.println();
+        }
+    }
+
+    static void hollowDiamond(){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int initS = 0;
+
+        for (int i = 0; i < n; i++) {
+            //stars
+            for (int j = 0; j < n - i; j++) {
+                System.out.print("* ");
+            }
+
+            // spaces
+            for (int j = 0; j < initS; j++) {
+                System.out.print("  ");
+            }
+            //stars
+            for (int j = 0; j < n - i; j++) {
+                System.out.print("* ");
+            }
+            initS+=2;
+            System.out.println();
+        }
+        initS-=2;
+//        initS = 2*n-2;
+        for (int i = 1; i <= n; i++) {
+            //stars
+            for (int j = 0; j < i; j++) {
+                System.out.print("* ");
+            }
+
+            // spaces
+            for (int j = 0; j < initS; j++) {
+                System.out.print("  ");
+            }
+            //stars
+            for (int j = 0; j < i; j++) {
+                System.out.print("* ");
+            }
+            initS-=2;
+            System.out.println();
+        }
+    }
+
+    static void butterfly(){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int initS = 2*n-2;
+
+        for (int i = 1; i <= 2*n-1; i++) {
+            int stars = i;
+            if(i>n) stars = 2*n - i;
+
+            for (int j = 1; j <= initS; j++) {
+                System.out.print("* ");
+            }
+
+            for (int j = 0; j < initS; j++) {
+                System.out.print("  ");
+            }
+
+            for (int j = 1; j <= stars; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+            if(i<n) initS -= 2;
+            else initS += 2;
+        }
+
+
+    }
 
 
     static void main(String[] args) {
-        pyramidAlphabet();
+        butterfly();
     }
 }
