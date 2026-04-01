@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import static java.lang.Math.min;
+
 class Main{
 
     static void rectangleStar(){
@@ -349,7 +351,7 @@ class Main{
             int stars = i;
             if(i>n) stars = 2*n - i;
 
-            for (int j = 1; j <= initS; j++) {
+            for (int j = 1; j <= stars; j++) {
                 System.out.print("* ");
             }
 
@@ -368,8 +370,40 @@ class Main{
 
     }
 
+    static void square(){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if(i==0 || j==0 || i==n-1 || j==n-1){
+                    System.out.print("* ");
+                } else System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void Minecraft(){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int time = 2*n-1;
+
+        for (int i = 0; i < time; i++) {
+            for (int j = 0; j < time; j++) {
+                int top = i; int left = j;
+                int right = (2*n-2) -j;
+                int down = (2*n-2) -i;
+                System.out.print(n-min(min(top, down), min(left, right))+" ");
+            }
+            System.out.println();
+        }
+    }
+
+
+
 
     static void main(String[] args) {
-        butterfly();
+        Minecraft();
     }
 }
